@@ -1,0 +1,35 @@
+version: '3.8'
+services:
+  livekit-server:
+    container_name: livekit-server
+    image: livekit/livekit-server:latest
+    ports:
+      - "7880:7880"
+    volumes:
+      - ./config.yaml:/config.yaml
+    command: --config /config.yaml
+    environment:
+      - CONFIG_FILE=/config.yaml
+      - LIVEKIT_API_KEY=108cc770f923cf669912dfed679c73c3
+      - LIVEKIT_API_SECRET=2c0c06d6975ee23e9ae32460ff0599b4
+  redis:
+    image: redis
+    container_name: redis
+    ports:
+      - "6379:6379"
+  node-api:
+    build:
+      context: ./Node API
+      dockerfile: Dockerfile
+    container_name: node-api
+    ports:
+      - "3000:3000"
+  coturn:
+    image: instrumentisto/coturn:latest
+    container_name: coturn-server
+    ports:
+      - "3478:3478/udp"
+      - "5349:5349/tcp"
+    volumes:
+      - ./coturn.conf:/etc/coturn/turnserver.conf
+    command: ["turnserver", "-c", "/etc/coturn/turnserver.conf"]
