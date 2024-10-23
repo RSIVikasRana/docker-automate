@@ -28,7 +28,7 @@ services:
     image: instrumentisto/coturn:latest
     container_name: coturn-server
     ports:
-      - "3478:3478/udp"
+      - "3479:3479/udp"
       - "5349:5349/tcp"
     volumes:
       - ./coturn.conf:/etc/coturn/turnserver.conf
