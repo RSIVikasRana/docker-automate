@@ -25,11 +25,11 @@ services:
     ports:
       - "3000:3000"
   coturn:
-    image: instrumentisto/coturn:latest
+    image: coturn/coturn:latest
     container_name: coturn-server
-    ports:
-      - "3479:3479/udp"
-      - "5349:5349/tcp"
+    #ports:
+    #  - "3479:3479/udp"
+    #  - "5349:5349/tcp"
     volumes:
-      - ./coturn.conf:/etc/coturn/turnserver.conf
-    command: ["turnserver", "-c", "/etc/coturn/turnserver.conf"]
+      - ./coturn.conf:/etc/turnserver.conf
+    command: ["turnserver", "-c", "/etc/turnserver.conf"]
