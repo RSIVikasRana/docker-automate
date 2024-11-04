@@ -80,7 +80,7 @@ rtc:
    # - stun.l.google.com:19302
   # # optional TURN servers for clients. This isn't necessary if using embedded TURN server (see below).
   turn_servers:
-     - host: 13.48.249.196
+     - host: 51.20.94.51
        port: 3478
        # tls, tcp, or udp
        protocol: udp
