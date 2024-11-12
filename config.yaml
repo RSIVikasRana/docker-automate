@@ -20,7 +20,7 @@ port: 7880
 # when redis is set, LiveKit will automatically operate in a fully distributed fashion
 # clients could connect to any node and be routed to the same room
 redis:
-  address: redis:6379
+  address: 13.60.96.118:6379
   # db: 0
   # username: myuser
   # password: mypassword
@@ -80,7 +80,7 @@ rtc:
    # - stun.l.google.com:19302
   # # optional TURN servers for clients. This isn't necessary if using embedded TURN server (see below).
   turn_servers:
-     - host: 51.20.94.51
+     - host: 13.60.96.118
        port: 3478
        # tls, tcp, or udp
        protocol: udp
