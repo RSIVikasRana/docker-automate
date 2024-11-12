@@ -13,6 +13,13 @@ services:
       - LIVEKIT_API_KEY=108cc770f923cf669912dfed679c73c3
       - LIVEKIT_API_SECRET=2c0c06d6975ee23e9ae32460ff0599b4
 
+  coturn:
+    image: coturn/coturn:latest
+    container_name: coturn
+    volumes:
+      - ./coturn.conf:/etc/turnserver.conf
+    command: ["turnserver", "-c", "/etc/turnserver.conf"]
+
   nginx:
     image: nginx:latest
     container_name: nginx
