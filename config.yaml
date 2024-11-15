@@ -285,7 +285,7 @@ keys:
 node_selector:
 #   # default: any. valid values: any, sysload, cpuload, regionaware
   kind: cpuload
-  sysload_limit: 0.7
+  sysload_limit: 0.5
 #   # priority used for selection of node when multiple are available
 #   # default: random. valid values: random, sysload, cpuload, rooms, clients, tracks, bytespersec
 #   sort_by: sysload
