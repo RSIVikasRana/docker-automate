@@ -65,7 +65,7 @@ rtc:
   # when set to true, attempts to discover the host's public IP via STUN
   # this is useful for cloud environments such as AWS & Google where hosts have an internal IP
   # that maps to an external one
-  use_external_ip: true
+#  use_external_ip: true
   # # when set, LiveKit will attempt to use a UDP mux so all UDP traffic goes through
   # # listed port(s). To maximize system performance, we recommend using a range of ports
   # # greater or equal to the number of vCPUs on the machine.
@@ -143,7 +143,7 @@ rtc:
   # data_channel_max_buffered_amount: 0
 
 # when enabled, LiveKit will expose prometheus metrics on :6789/metrics
-prometheus_port: 6789
+#prometheus_port: 6789
 
 # API key / secret pairs.
 # Keys are used for JWT authentication, server APIs would require a keypair in order to generate access tokens
@@ -282,10 +282,10 @@ keys:
 # region: us-west-2
 
 # # node selector
-node_selector:
+#node_selector:
 #   # default: any. valid values: any, sysload, cpuload, regionaware
-  kind: cpuload
-  sysload_limit: 0.5
+#  kind: cpuload
+#  sysload_limit: 0.5
 #   # priority used for selection of node when multiple are available
 #   # default: random. valid values: random, sysload, cpuload, rooms, clients, tracks, bytespersec
 #   sort_by: sysload
@@ -301,16 +301,16 @@ node_selector:
 
 # # node limits
 # # set to -1 to disable a limit
-limit:
+#limit:
 #   # defaults to 400 tracks in & out per CPU, up to 8000
-  num_tracks: -1
+#  num_tracks: -1
 #   # defaults to 1 GB/s, or just under 10 Gbps
-  bytes_per_sec: 1_000_000_000
+#  bytes_per_sec: 1_000_000_000
 #   # how many tracks (audio / video) that a single participant can subscribe at same time.
 #   # if the limit is exceeded, subscriptions will be pending until any subscribed track has been unsubscribed.
 #   # value less or equal than 0 means no limit.
-  subscription_limit_video: 0
-  subscription_limit_audio: 0
+#  subscription_limit_video: 0
+#  subscription_limit_audio: 0
 #   # limit size of room and participant's metadata, 0 for no limit
 #   max_metadata_size: 0
 #   # limit size of participant attributes, 0 for no limit
