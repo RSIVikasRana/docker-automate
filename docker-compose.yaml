@@ -3,7 +3,8 @@ services:
   livekit-server:
     container_name: livekit-server
     image: livekit/livekit-server:latest
-    network_mode: "host"  # This tells Docker to use the host network
+    ports:
+      - "7880:7880"
     volumes:
       - ./config.yaml:/config.yaml
     command: --config /config.yaml
@@ -11,7 +12,6 @@ services:
       - CONFIG_FILE=/config.yaml
       - LIVEKIT_API_KEY=108cc770f923cf669912dfed679c73c3
       - LIVEKIT_API_SECRET=2c0c06d6975ee23e9ae32460ff0599b4
-    restart: always
 
   nginx:
     image: nginx:latest
@@ -24,4 +24,6 @@ services:
     depends_on:
       - livekit-server
 
-  
+networks:
+  default:
+    name: livekit_network
