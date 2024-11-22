@@ -47,6 +47,8 @@ redis:
   # To use cluster remove the address key above and add the following
     cluster_addresses:
     - 16.16.215.172:6379
+    - 13.60.212.255:6379
+    - 16.16.126.136:6379
   
     
     
