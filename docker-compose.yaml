@@ -1,15 +1,5 @@
 version: '3.8'
 services:
-  stunnel:
-    build:
-      context: .
-      dockerfile: dockerfile
-    container_name: stunnel
-    ports:
-      - "6379:6379" # Map local Redis access to stunnel
-    networks:
-      - app-network
-
   livekit-server:
     container_name: livekit-server
     image: livekit/livekit-server:latest
@@ -22,10 +12,6 @@ services:
       - CONFIG_FILE=/config.yaml
       - LIVEKIT_API_KEY=108cc770f923cf669912dfed679c73c3
       - LIVEKIT_API_SECRET=2c0c06d6975ee23e9ae32460ff0599b4
-    depends_on:
-      - stunnel
-    networks:
-      - app-network
 
   nginx:
     image: nginx:latest
@@ -37,10 +23,7 @@ services:
       - ./nginx.conf:/etc/nginx/nginx.conf  # Custom Nginx configuration
     depends_on:
       - livekit-server
-    networks:
-      - app-network
 
 networks:
-  app-network:
-    driver: bridge
-
+  default:
+    name: livekit_network
