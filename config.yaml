@@ -20,7 +20,7 @@ port: 7880
 # when redis is set, LiveKit will automatically operate in a fully distributed fashion
 # clients could connect to any node and be routed to the same room
 redis:
-  address: 13.60.212.255:6379
+  address: stunnel:6379
   # db: 0
   # username: myuser
   # password: mypassword
