@@ -88,11 +88,11 @@ rtc:
        credential: "108cc770f923cf669912dfed679c73c3"
   # # allows LiveKit to monitor congestion when sending streams and automatically
   # # manage bandwidth utilization to avoid congestion/loss. Enabled by default
-  # congestion_control:
-  #   enabled: true
+    congestion_control:
+      enabled: true
   #   # in the unlikely event of highly congested networks, SFU may choose to pause some tracks
   #   # in order to allow others to stream smoothly. You can disable this behavior here
-  #   allow_pause: true
+      allow_pause: true
   # # allows automatic connection fallback to TCP and TURN/TLS (if configured) when UDP has been unstable, default true
   # allow_tcp_fallback: false
   # # number of packets to buffer in the SFU for video, defaults to 500
@@ -102,12 +102,12 @@ rtc:
   # # minimum amount of time between pli/fir rtcp packets being sent to an individual
   # # producer. Increasing these times can lead to longer black screens when new participants join,
   # # while reducing them can lead to higher stream bitrate.
-  # pli_throttle:
-  #   low_quality: 500ms
-  #   mid_quality: 1s
-  #   high_quality: 1s
+   pli_throttle:
+      low_quality: 300ms
+      mid_quality: 1s
+      high_quality: 1s
   # # when set, Livekit will collect loopback candidates, it is useful for some VM have public address mapped to its loopback interface.
-  # enable_loopback_candidate: true
+   enable_loopback_candidate: true
   # # network interface filter. If the machine has more than one network interface and you'd like it to use or skip specific interfaces
   # # both inclusion and exclusion filters can be used together. If neither is defined (default), all interfaces on the machine will be used.
   # # If both of them are set, then only include takes effect.
