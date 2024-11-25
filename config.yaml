@@ -20,7 +20,7 @@ port: 7880
 # when redis is set, LiveKit will automatically operate in a fully distributed fashion
 # clients could connect to any node and be routed to the same room
 redis:
-  address: 13.60.212.255:6379
+  # address: 
   # db: 0
   # username: myuser
   # password: mypassword
@@ -45,8 +45,13 @@ redis:
   #   client_key_file: /path/to/client.key
   #
   # To use cluster remove the address key above and add the following
-  # cluster_addresses:
-  # - livekit-redis-node-0.livekit-redis-headless:6379
+    cluster_addresses:
+    - 16.16.215.172:6379
+    - 13.60.212.255:6379
+    - 16.16.126.136:6379
+  
+    
+    
   # - livekit-redis-node-1.livekit-redis-headless:6380
   # And it will use the password key above as cluster password
   # And the db key will not be used due to cluster mode not support it.
@@ -88,11 +93,11 @@ rtc:
        credential: "108cc770f923cf669912dfed679c73c3"
   # # allows LiveKit to monitor congestion when sending streams and automatically
   # # manage bandwidth utilization to avoid congestion/loss. Enabled by default
-    congestion_control:
-      enabled: true
+  # congestion_control:
+  #   enabled: true
   #   # in the unlikely event of highly congested networks, SFU may choose to pause some tracks
   #   # in order to allow others to stream smoothly. You can disable this behavior here
-      allow_pause: true
+  #   allow_pause: true
   # # allows automatic connection fallback to TCP and TURN/TLS (if configured) when UDP has been unstable, default true
   # allow_tcp_fallback: false
   # # number of packets to buffer in the SFU for video, defaults to 500
@@ -102,12 +107,12 @@ rtc:
   # # minimum amount of time between pli/fir rtcp packets being sent to an individual
   # # producer. Increasing these times can lead to longer black screens when new participants join,
   # # while reducing them can lead to higher stream bitrate.
-   pli_throttle:
-      low_quality: 300ms
-      mid_quality: 1s
-      high_quality: 1s
+  # pli_throttle:
+  #   low_quality: 500ms
+  #   mid_quality: 1s
+  #   high_quality: 1s
   # # when set, Livekit will collect loopback candidates, it is useful for some VM have public address mapped to its loopback interface.
-   enable_loopback_candidate: true
+  # enable_loopback_candidate: true
   # # network interface filter. If the machine has more than one network interface and you'd like it to use or skip specific interfaces
   # # both inclusion and exclusion filters can be used together. If neither is defined (default), all interfaces on the machine will be used.
   # # If both of them are set, then only include takes effect.
